@@ -1,5 +1,5 @@
 const title = document.querySelector('#title')
-const getButton = document.querySelector('#getPizza')
+const makeButton = document.querySelector('#makePizza')
 const input = document.querySelector("#inputBox")
 // console.dir(getButton)
 
@@ -33,8 +33,16 @@ function addColorToChar(char) {
     return span
 }
 
-// getButton.addEventListener('click', function(e) {
-//     e.target.style.backgroundColor = getRandomColor()
-//     e.target.classList.add('getpizza')
-//     alert("Getting you your pizza!!")
-// })
+makeButton.addEventListener('click', function(e) {
+    var text = document.getElementById('inputToppings').value;     
+    var node = document.createElement("li");    
+    var textNode = document.createTextNode(text);    
+    node.appendChild(textNode);     
+    document.getElementById('toppings').appendChild(node);
+    document.getElementById('inputToppings').value = ''
+    // e.target.classList.add('makepizza')
+    // alert("Making you your pizza!!")
+})
+
+
+

@@ -1,3 +1,7 @@
 .getpizza {
     font-size: 60px;
 }
+
+ul {
+    list-style: none;
+}
