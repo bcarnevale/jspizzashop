@@ -33,16 +33,35 @@ function addColorToChar(char) {
     return span
 }
 
-makeButton.addEventListener('click', function(e) {
-    var text = document.getElementById('inputToppings').value;     
-    var node = document.createElement("li");    
-    var textNode = document.createTextNode(text);    
-    node.appendChild(textNode);     
-    document.getElementById('toppings').appendChild(node);
-    document.getElementById('inputToppings').value = ''
-    // e.target.classList.add('makepizza')
-    // alert("Making you your pizza!!")
-})
+// makeButton.addEventListener('click', function(e) {
+//     var text = document.getElementById('inputToppings').value;     
+//     var node = document.createElement("li");    
+//     var textNode = document.createTextNode(text);    
+//     node.appendChild(textNode);     
+//     document.getElementById('toppings').appendChild(node);
+//     document.getElementById('inputToppings').value = ''
+//     // e.target.classList.add('makepizza')
+//     // alert("Making you your pizza!!")
+// })
 
+// ***Another way of submitting the form and add to list
+const form = document.querySelector('#toppingsForm')
+const ul = document.querySelector('ul')
+
+form.addEventListener('submit', addToppings)
+
+function addToppings(e) {
+    e.preventDefault()
+    const text = e.target.inputToppings.value
+    createItem(ul, text)
+    e.target.reset()
+}
+
+function createItem(parentNode, text) {
+    const li = document.createElement('li')
+    li.classList.add('inputToppings')
+    li.innerText = text
+    parentNode.appendChild(li)
+}
 
 
